@@ -5,7 +5,8 @@ node {
         }
         stage('Build') {
             sh 'npm cache clean --force'
-            sh 'npm install'
+            sh 'npm config set registry https://registry.npmmirror.com/'
+            sh 'npm install --legacy-peer-deps'
         }
         stage('Test') {
             sh './jenkins/scripts/test.sh'
