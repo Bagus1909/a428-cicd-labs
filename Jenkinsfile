@@ -5,8 +5,6 @@ node {
         }
         stage('Build') {
             sh 'npm cache clean --force'
-            sh 'find node_modules -type d | xargs chmod -R 777'
-            sh 'rm -rf node_modules package-lock.json || true'
             sh 'npm install'
         }
         stage('Test') {
