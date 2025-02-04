@@ -1,5 +1,5 @@
 node {
-    docker.image('node:16-buster-slim').inside('-u root') {
+    docker.image('node:16-buster-slim').inside('-u root --network host') {
         stage('Checkout') {
             checkout scm
         }
